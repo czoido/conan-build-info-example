@@ -1,6 +1,16 @@
 # conan-build-info-example
 
+
 ```
+
+     liba
+      /\
+   libb libc
+      \/
+     libd
+      |
+   consumer
+   
 # Need an artifactory instance to upload packages
 # docker run --name artifactory-cpp -d -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-cpp-ce:latest
 

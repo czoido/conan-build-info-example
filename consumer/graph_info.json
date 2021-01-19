@@ -1,0 +1,50 @@
+{
+ "options": [
+  [
+   "fPIC",
+   "True"
+  ],
+  [
+   "shared",
+   "False"
+  ],
+  [
+   "liba:fPIC",
+   "True"
+  ],
+  [
+   "liba:shared",
+   "False"
+  ],
+  [
+   "libb:fPIC",
+   "True"
+  ],
+  [
+   "libb:shared",
+   "False"
+  ],
+  [
+   "libc:fPIC",
+   "True"
+  ],
+  [
+   "libc:shared",
+   "False"
+  ],
+  [
+   "libd:fPIC",
+   "True"
+  ],
+  [
+   "libd:shared",
+   "False"
+  ]
+ ],
+ "root": {
+  "name": "consumer",
+  "version": "4.0",
+  "user": null,
+  "channel": null
+ }
+}

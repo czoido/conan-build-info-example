@@ -1,0 +1,49 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=12.0
+    os=Macos
+
+[requires]
+    liba/1.0#0b1a78f5925f62480ed2d97002e926fa:6a83d7f783e7ee89a83cf2fe72b5f5f67538e2a6
+    libb/2.0#a5e599e393dec84c94719a490a4f486a:8575822fc794186078d97735510e876426f7c49c
+    libc/1.2#43db14e2221b60b7d715a5af72bcc9ee:8575822fc794186078d97735510e876426f7c49c
+    libd/1.4#ed7c5ff65cb9ad1fd0fceecdf9eae941:aacc639f3d76fec9cf3ddf88fb415053dea2cb76
+
+[options]
+    fPIC=True
+    shared=False
+
+[full_settings]
+    arch=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=12.0
+    os=Macos
+
+[full_requires]
+    liba/1.0:6a83d7f783e7ee89a83cf2fe72b5f5f67538e2a6
+    libb/2.0:8575822fc794186078d97735510e876426f7c49c
+    libc/1.2:8575822fc794186078d97735510e876426f7c49c
+    libd/1.4:aacc639f3d76fec9cf3ddf88fb415053dea2cb76
+
+[full_options]
+    fPIC=True
+    shared=False
+    liba:fPIC=True
+    liba:shared=False
+    libb:fPIC=True
+    libb:shared=False
+    libc:fPIC=True
+    libc:shared=False
+    libd:fPIC=True
+    libd:shared=False
+
+[recipe_hash]
+
+
+[env]
+

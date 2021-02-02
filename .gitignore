@@ -1,3 +1,8 @@
 .DS_Store
 consumer/conan.lock
 consumer/updated.lock
+consumer/conanbuildinfo.txt
+consumer/conanbuildinfo.cmake
+consumer/buildinfo.json
+consumer/conaninfo.txt
+consumer/graph_info.json

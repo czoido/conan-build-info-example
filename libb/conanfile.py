@@ -14,7 +14,7 @@ class LibaConan(ConanFile):
     default_options = {"shared": False, "fPIC": True}
     generators = "cmake"
     exports_sources = "src/*"
-    requires = "liba/1.0"
+    requires = "liba/1.0@user/channel"
 
     def config_options(self):
         if self.settings.os == "Windows":

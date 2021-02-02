@@ -10,18 +10,18 @@ conan remove "libd" -f
 conan remove "consumer" -f
 
 # Export dependencies
-cd liba && conan export . && cd ..
-cd libb && conan export . && cd ..
-cd libc && conan export . && cd ..
-cd libd && conan export . && cd ..
-cd consumer && conan export . && cd ..
+cd liba && conan export . user/channel && cd ..
+cd libb && conan export . user/channel && cd ..
+cd libc && conan export . user/channel && cd ..
+cd libd && conan export . user/channel && cd ..
+cd consumer && conan export . user/channel && cd ..
 
 # Create lockfile
-cd consumer && conan lock create conanfile.py
+cd consumer && conan lock create conanfile.py --user=user --channel=channel
 
 # some conan command that updates the lockfile with built nodes marked as modified
 
-conan install . --lockfile=conan.lock --lockfile-out=updated.lock --build
+conan install . user/channel --lockfile=conan.lock --lockfile-out=updated.lock --build
 
 # Upload to Artifactory
 

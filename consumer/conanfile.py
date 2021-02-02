@@ -14,7 +14,7 @@ class ConsumerConan(ConanFile):
     default_options = {"shared": False, "fPIC": True}
     generators = "cmake"
     exports_sources = "src/*"
-    requires = "libd/1.4"
+    requires = "libd/1.4@user/channel"
 
     def config_options(self):
         if self.settings.os == "Windows":

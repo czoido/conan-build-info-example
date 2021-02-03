@@ -25,11 +25,11 @@ conan install . user/channel --lockfile=conan.lock --lockfile-out=updated.lock -
 
 # Upload to Artifactory
 
-conan upload "liba" -c -r artifactory
-conan upload "libb" -c -r artifactory
-conan upload "libc" -c -r artifactory
-conan upload "libd" -c -r artifactory
-conan upload "consumer" -c -r artifactory
+conan upload "liba" -c -r artifactory --all 
+conan upload "libb" -c -r artifactory --all
+conan upload "libc" -c -r artifactory --all
+conan upload "libd" -c -r artifactory --all
+conan upload "consumer" -c -r artifactory --all
 
 # generate build info
 conan_build_info --v2 create buildinfo.json --lockfile updated.lock --user admin --password password

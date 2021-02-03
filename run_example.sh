@@ -3,11 +3,17 @@
 # Need an artifactory instance to upload packages
 # docker run --name artifactory-cpp -d -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-cpp-ce:latest
 
-conan remove "liba" -f
-conan remove "libb" -f
-conan remove "libc" -f
-conan remove "libd" -f
-conan remove "consumer" -f
+conan remove "liba*" -f
+conan remove "libb*" -f
+conan remove "libc*" -f
+conan remove "libd*" -f
+conan remove "consumer*" -f
+
+conan remove "liba*" -f -r artifactory
+conan remove "libb*" -f -r artifactory
+conan remove "libc*" -f -r artifactory
+conan remove "libd*" -f -r artifactory
+conan remove "consumer*" -f -r artifactory
 
 # Export dependencies
 cd liba && conan export . user/channel && cd ..

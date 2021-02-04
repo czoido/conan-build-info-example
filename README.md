@@ -10,68 +10,29 @@
      libd
       |
    consumer
-   
-# Need an artifactory instance to upload packages
-# docker run --name artifactory-cpp -d -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-cpp-ce:latest
-# then create a Conan local repo in Artifactory
-# and add it to conan remotes with name artifactory
-# conan remote add artifactory http://localhost:8081/artifactory/api/conan/<name_of_the_local_repo>
-# set the user and password
-# conan user -p admin -r artifactory password
-# ./run_example.sh
+```
 
-echo "************************************"
-echo "**   REMOVE PACKAGES FROM CACHE   **"
-echo "************************************"
+You need an artifactory instance running to upload packages
 
-conan remove "liba*" -f
-conan remove "libb*" -f
-conan remove "libc*" -f
-conan remove "libd*" -f
-conan remove "consumer*" -f
+```
+docker run --name artifactory-cpp -d -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-cpp-ce:latest
+```
 
-echo "*******************************************"
-echo "**   REMOVE PACKAGES FROM ARTIFACTORY   ***"
-echo "*******************************************"
+Then create a Conan local repo in Artifactory and add it to conan remotes with name artifactory
 
-conan remove "liba*" -f -r artifactory
-conan remove "libb*" -f -r artifactory
-conan remove "libc*" -f -r artifactory
-conan remove "libd*" -f -r artifactory
-conan remove "consumer*" -f -r artifactory
+```
+conan remote add artifactory http://localhost:8081/artifactory/api/conan/<name_of_the_local_repo>
 
-# Export dependencies
-cd liba && conan export . && cd ..
-cd libb && conan export . && cd ..
-cd libc && conan export . && cd ..
-cd libd && conan export . && cd ..
-cd consumer && conan export . && cd ..
+```
 
-# Create lockfile
-cd consumer && conan lock create conanfile.py
+Set the user and password for the repo
 
-# some conan command that updates the lockfile with built nodes marked as modified
+```
+conan user -p admin -r artifactory password
+```
 
-conan install . --lockfile=conan.lock --lockfile-out=updated.lock --build
+Run the example: will remove the packages from cache and artifactory if already created. Will create a build info using a lockfile and the publishing it to Artifactory.
 
-# Upload to Artifactory
-
-conan upload "liba" -c -r artifactory --all
-conan upload "libb" -c -r artifactory --all
-conan upload "libc" -c -r artifactory --all
-conan upload "libd" -c -r artifactory --all
-conan upload "consumer" -c -r artifactory --all
-
-# generate build info
-echo "***************************"
-echo "**   CREATE BUILD INFO   **"
-echo "***************************"
-
-conan_build_info --v2 create buildinfo.json --lockfile updated.lock --user admin --password password
-
-echo "***************************"
-echo "**   PUBLISH BUILD INFO  **"
-echo "***************************"
-
-conan_build_info --v2 publish buildinfo.json --url http://localhost:8081/artifactory --user admin --password password
+```
+./run_example.sh
 ```

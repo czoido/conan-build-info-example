@@ -46,7 +46,7 @@ cd consumer && conan lock create conanfile.py --user=user --channel=channel
 
 # some conan command that updates the lockfile with built nodes marked as modified
 
-conan install . user/channel --lockfile=conan.lock --lockfile-out=updated.lock --build
+conan create . user/channel --lockfile=conan.lock --lockfile-out=updated.lock --build
 
 # Upload to Artifactory
 

@@ -10,6 +10,12 @@
 # ./run_example.sh
 
 echo "************************************"
+echo "**   SET BUILD NAME AND NUMBER    **"
+echo "************************************"
+
+conan_build_info --v2 start BUILD_NAME BUILD_NUMBER
+
+echo "************************************"
 echo "**   REMOVE PACKAGES FROM CACHE   **"
 echo "************************************"
 

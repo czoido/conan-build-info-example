@@ -28,7 +28,7 @@ conan remote add artifactory http://localhost:8081/artifactory/api/conan/<name_o
 Set the user and password for the repo
 
 ```
-conan user -p admin -r artifactory password
+conan user admin -r artifactory -p password
 ```
 
 Run the example: will remove the packages from cache and artifactory if already created. Will create a build info using a lockfile and the publishing it to Artifactory.
